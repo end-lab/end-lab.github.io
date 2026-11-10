@@ -131,7 +131,7 @@
     function filterPubs(){const q=search.value.trim().toLowerCase(),y=yearFilter.value;let n=0;document.querySelectorAll('.pub').forEach(el=>{const show=(!q||el.dataset.search.includes(q))&&(y==='all'||el.dataset.year===y);el.classList.toggle('pub-hidden',!show);if(show)n++});document.getElementById('pub-count').textContent=`${n} of ${journals.length} journal publications`}
     search.addEventListener('input',filterPubs);yearFilter.addEventListener('change',filterPubs);filterPubs();
     const menu=document.querySelector('.menu');menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));document.body.classList.toggle('mobile-open',open)});document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>{menu.setAttribute('aria-expanded','false');document.body.classList.remove('mobile-open')}));
-  document.querySelectorAll('a[href]').forEach(a=>{a.target='_blank';a.rel='noopener noreferrer'});
+  document.querySelectorAll('a[href]').forEach(a=>{if(a.closest('#site-nav')){a.removeAttribute('target');a.removeAttribute('rel')}else{a.target='_blank';a.rel='noopener noreferrer'}});
   </script>
 </body>
 </html>

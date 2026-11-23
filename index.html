@@ -54,7 +54,8 @@
   <script>
     const journals = [
       [`Hammad Ghazanfar†, Haider Abbas†, Muhammad Rabeel†, Honggyun Kim, Ghulam Dastgeer, Muhammad Nasim, Furqan Zahoor, Yawar Abbas, Waqas Ahmad and Deok-kee Kim, “Reservoir-Driven Neuromorphic Computing Based on Composite Rare-Earth/Transition Metal Oxide Memristor,” Advanced Functional Materials (2026)`, `10.1002/adfm.77998`, 2026],
-      [`Aabid Amin Fida†, Haider Abbas†, Arshid Nisar, Furqan Zahoor and Sparsh Mittal, “Physical Reservoir Computing Using Diffusive and Electrochemical Metallization Memristors for Event Encoded Series Classification,” IEEE Transactions on Electron Devices (2026)`, `10.1109/TED.2026.3729186`, 2026],
+      [`Furqan Zahoor, Haider Abbas*, Ali Alzahrani and Faisal Bashir, “Ultrasensitive detection using dielectrically modulated Source and Material Engineered Tunnel FET without chemical doping,” <em>IEEE Access</em> (2026)`, `10.1109/ACCESS.2026.3755503`, 2026],
+      [`Aabid Amin Fida†, Haider Abbas†, Arshid Nisar, Furqan Zahoor and Sparsh Mittal, “Physical Reservoir Computing Using Diffusive and Electrochemical Metallization Memristors for Event Encoded Series Classification,” <em>IEEE Transactions on Electron Devices</em>, 73, 7107 (2026)`, `10.1109/TED.2026.3729186`, 2026],
       [`Hammad Ghazanfar, Muhammad Rabeel, Honggyun Kim, Haider Abbas, M. Anis-ur-Rehman, Sobia Nisar, Muhammad Shoaib Tahir, Muhammad Wajid Zulfiqar, Rana Faryad Ali, Ghulam Dastgeer and Deok-kee Kim, “A Review on Memristor-Based In-Sensor Computing for Neuromorphic and Edge Intelligence,” Nano Energy, 154, 112009 (2026)`, `10.1016/j.nanoen.2026.112009`, 2026],
       [`Faisal Bashir, Haider Abbas*, Arshid Nisar, Usman Isyaku Bature, Ali Alzahrani, and Furqan Zahoor, “Cryogenic electronics for high performance computing applications: A comprehensive review,” Materials Today Physics, 59, 101960 (2025)`, `10.1016/j.mtphys.2025.101960`, 2025],
       [`Turgun Boynazarov, Dae Haa Ryu, A Young Cho, Haider Abbas and Taekjib Choi, “Flexible Hf0.5Zr0.5O2/La0.7Sr0.3MnO3 Heterostructure by Water-Etching Transfer for Tunable Multilevel RRAM in Neuromorphic Computing,” Journal of Alloys and Compounds, 1044, 184383 (2025)`, `10.1016/j.jallcom.2025.184383`, 2025],
@@ -131,7 +132,7 @@
     function filterPubs(){const q=search.value.trim().toLowerCase(),y=yearFilter.value;let n=0;document.querySelectorAll('.pub').forEach(el=>{const show=(!q||el.dataset.search.includes(q))&&(y==='all'||el.dataset.year===y);el.classList.toggle('pub-hidden',!show);if(show)n++});document.getElementById('pub-count').textContent=`${n} of ${journals.length} journal publications`}
     search.addEventListener('input',filterPubs);yearFilter.addEventListener('change',filterPubs);filterPubs();
     const menu=document.querySelector('.menu');menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));document.body.classList.toggle('mobile-open',open)});document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>{menu.setAttribute('aria-expanded','false');document.body.classList.remove('mobile-open')}));
-  document.querySelectorAll('a[href]').forEach(a=>{if(a.closest('#site-nav')){a.removeAttribute('target');a.removeAttribute('rel')}else{a.target='_blank';a.rel='noopener noreferrer'}});
+  document.querySelectorAll('a[href]').forEach(a=>{if(a.closest('#site-nav') || a.matches('.brand, .backtop')){a.removeAttribute('target');a.removeAttribute('rel')}else{a.target='_blank';a.rel='noopener noreferrer'}});
   </script>
 </body>
 </html>
